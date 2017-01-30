@@ -1,0 +1,85 @@
+<h2>
+    <strong>
+        ACCESS
+    </strong>
+</h2>
+    <br>
+    <br>
+   
+<md-content layout-margin>
+    <md-tabs md-selected=0 md-border-bottom md-autoselect md-stretch-tabs="always" layout-fill >
+        <md-tab label="GET KEY" layout-padding >
+
+            <form novalidate class="simple-form" name="form">
+                <md-content   layout-margin >
+                    <div >
+                        <md-input-container class="md-block" flex-gt-sm >
+                            <label>EMAIL ID</label>
+                            <input ng-model="user.username" type="email" name="uEmail" required="">
+                                <br />
+                                <div ng-show="form.$submitted || form.uEmail.$touched">
+                                <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+                                <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+                                </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>PASSWORD</label>
+                            <input ng-model="user.password" type="password"  required="">
+                                <br />
+                                <div ng-show="form.$submitted || form.uEmail.$touched">
+                                <span ng-show="form.uEmail.$error.required">Password.</span>
+                                </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-align="center center">
+                        <md-button class="md-raised md-primary" type="submit" ng-click="getKey(user)">REGISTER</md-button>
+                    </div>
+                    <div ng-show="showAccessKey">
+                        <pre><h4>You have successfully registered</h4> Access Key : {{successMessage}}</pre>
+                    </div>
+                    <div ng-show="showAccessKeyFailure">
+                      <pre>Registration Failed : {{failureMessage}}</pre>  
+                    </div>
+                </md-content>
+            </form >
+            
+
+        </md-tab>
+        <md-tab label="FORGOT KEY" layout-padding>
+                <form novalidate class="simple-form" name="forgetForm">
+                <md-content   layout-margin >
+                    <div>
+                        <md-input-container class="md-block" flex-gt-sm >
+                            <label>EMAIL ID</label>
+                            <input ng-model="forgetuser.username" type="email" name="fEmail" required="">
+                                <br />
+                                <div ng-show="forgetForm.$submitted || foforgetFormrm.fEmail.$touched">
+                                <span ng-show="forgetForm.fEmail.$error.required">Tell us your email.</span>
+                                <span ng-show="forgetForm.fEmail.$error.email">This is not a valid email.</span>
+                                </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>PASSWORD</label>
+                            <input ng-model="forgetuser.password" type="password" name="fpassword"  required="">
+                                <br />
+                                <div ng-show="forgetForm.$submitted || forgetForm.fpassword.$touched">
+                                <span ng-show="forgetForm.fpassword.$error.required">Password.</span>
+                                </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-align="center center">
+                        <md-button class="md-raised md-primary" type="submit" ng-click="retrieveKey(forgetuser)">GET KEY</md-button>
+                    </div>
+                    <div ng-show="showGetKey">
+                        <pre>Access Key : {{successGetKeyMessage}}</pre>
+                    </div>
+                    <div ng-show="showGetKeyFailure">
+                        <pre>Access Failed : {{failureGetKeyMessage}} </pre>
+                    </div>
+                </md-content>
+            </form >
+        </md-tab>
+    </md-tabs>
+</md-content>
+    
+

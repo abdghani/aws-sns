@@ -8,12 +8,21 @@
   "dependencies": {
     "aws-sdk": "^2.6.9",
     "body-parser": "^1.15.2",
+    "check-types": "^7.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "^2.5.2",
     "express": "~4.13.4",
     "jade": "~1.11.0",
+    "mongoose": "^4.7.3",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "validator": "^6.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11"
   }
 }

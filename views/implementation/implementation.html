@@ -1,0 +1,19 @@
+<h2>
+    <strong>
+        Implementation
+    </strong>
+</h2>
+
+<p>
+        <h2>Python</h2>
+        <pre>
+    import requests;
+    body = {
+    'phoneNumber' : 'xxxxxxxxxx' ,                 
+    'message' : 'YOUR MESSAGE',     
+    'accessKey' : 'YOUR ACCESS KEY ID'                
+    };
+    r = requests.post('https://smsany.herokuapp.com/api/sms/sendsms',data = body);
+    print r.text
+        </pre>
+</p>

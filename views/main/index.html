@@ -1,0 +1,150 @@
+<!--<!DOCTYPE html>
+	<html>
+	<head>
+		<title>EASYSMS</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">EASYSMS</a>
+					</div>
+
+				</div>
+			</nav>
+
+		<div>
+			<p> This sms app is made using Amazon Web Services SNS .Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully managed push notification service that lets you send individual messages or to fan-out messages to large numbers of recipients. Amazon SNS makes it simple and cost effective to send push notifications to mobile device users, email recipients or even send messages to other distributed services.</p>
+			<p>
+				With Amazon SNS, you can send notifications to Apple, Google, Fire OS, and Windows devices, as well as to Android devices in China with Baidu Cloud Push. You can use SNS to send SMS messages to mobile device users worldwide.
+
+Beyond these endpoints, Amazon SNS can also deliver messages to Amazon Simple Queue Service (SQS), AWS Lambda functions, or to any HTTP endpoint.
+			</p>
+			<p>
+				Each time a message is send a message is published to the phone number of receiver .
+
+			</p>
+		</div>
+
+		<% if(typeof status != 'undefined' && status == 'success'){ %>
+			<div class="alert alert-success fade in">
+			  <strong>Successfully sent to <%=phone%> , MessegeId: </strong> <%=info%>
+			</div>
+		<% }else if(typeof status != 'undefined' && status == 'failure'){ %>
+			<div class="alert alert-danger fade in">
+			  <strong>Failed to send to <%=phone%> </strong> Reason <%=info%>
+			</div>
+		<% } %>
+		<form action="/sendSms" method="post">
+			<div class="panel panel-default">
+			  <div class="panel-body">
+			  		<h2>SEND SMS</h2>
+			  </div>
+			  <div class="panel-footer">
+			  		 <label for="phone" class="center-block">Phone Number (attach the country code)</label>
+    				 <input type="text" class="form-control" id="phone" name="phone">
+    				 <label for="message" class="center-block">Message:</label>
+    				 <textarea class="form-control" id="message" name="message"></textarea>
+    				 <br>
+    				 <button class="btn btn-primary center-block" type="submit">Send</button>
+
+			  </div>
+			</div>
+			</div>
+
+		</form>
+
+		</div>
+	</body>
+	</html>	-->
+
+
+	<html ng-app="myapp">
+		<title>
+			smsany
+		</title>
+		<head>
+			<link rel="icon" href="img/smsany.png" type="image/x-icon" />
+			<link rel="shortcut icon" href="img/smsany.png" type="image/x-icon" />
+
+			<script type="text/javascript" src="/angular/angular.min.js"></script>
+			<script type="text/javascript" src="/angular-animate/angular-animate.min.js"></script>
+    		<script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
+			<script type="text/javascript" src="/angular-material/angular-material.min.js"></script>
+			<script type="text/javascript" src="/angular-messages/angular-messages.min.js"></script>
+			<script type="text/javascript" src="/angular-messages/angular-messages.min.js"></script>
+			<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+			<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="/angular-ui-router/release/angular-ui-router.js"></script>
+			<script type="text/javascript" src="./mainjs.js"></script>
+			<script type="text/javascript" src="/js/factory/ajaxfac.js"></script>
+
+			<link rel="stylesheet" href="/angular-material/angular-material.min.css">
+			<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+			<link rel="stylesheet" href="/css/sidebar.css">
+			<link rel="stylesheet" href="/css/style.css">
+		</head>
+		<body>
+
+				<div layout="row" layout-wrap>
+					<!-- <div class="row"> -->
+							<div flex="33">
+								<div id="sidebar-wrapper">
+									<ul class="sidebar-nav">
+										<br>
+									<li class="sidebar-brand">
+										<a  ui-sref="home" class="brand brand-name navbar-left">
+											 <img class="img-responsive2" src="img/smsany.png" >
+										</a>
+									</li>
+									<br><br>
+									<li>
+										<a ui-sref="home"><h3>Home</h3> </a>
+									</li>
+									<li>
+										<a  ui-sref="api"> <h3>Api</h3> </a>
+									</li>
+									<li>
+										<a  ui-sref="access"> <h3>Access Key</h3> </a>
+									</li>
+									<li>
+										<a  ui-sref="demo"> <h3>Demo</h3> </a>
+									</li>
+									<li>
+										<a  ui-sref="implementation"> <h3>Implementation</h2> </a>
+									</li>
+									<li>
+										<a  ui-sref="about"> <h3>About</h3> </a>
+									</li>
+								</ul>
+								</div>
+							</div>
+							<div flex="60">
+								<div ui-view></div>
+							</div>
+					<!-- </div> -->
+
+				</div>
+
+
+
+
+		</body>
+	</html>

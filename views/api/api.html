@@ -1,0 +1,49 @@
+<h2>
+    <strong>
+        APIS
+    </strong>
+</h2>
+<p style="font-size: 22">
+    SMSANY lets you send sms to any where in the world within seconds . Just send a post request to the server with valid credentials and your message will be delivered.
+    Obtain an access key by submitting your credentials and you are good to go.
+    
+</p>
+
+<h3>
+        <strong>
+             REQUEST
+        </strong>
+</h3>
+<pre>
+   <code><strong>POST</strong></code> : https://smsany.herokuapp.com/api/sms/sendsms
+   <code><strong>HEADER</strong>  :  Content-Type : application/json
+   <code><strong>BODY</strong> :
+        {
+            phoneNumber : xxxxxxxxxx                    // target phone number
+            message : (message you want to send)        // message BODY
+            accessKey : valid access key                // valid access key 
+        }
+</pre>
+
+<h3>
+        <strong>
+             RESPONSE BODY
+        </strong>
+        <h4>FAILURE</h4>
+</h3>
+<pre>
+    <code><strong>RESPONSE BODY</strong> :
+    {
+        status : 'failure',                     
+        reason : 'reason of failure' ,                
+        params : 'request body sent',
+    }
+</pre>
+        <h4>SUCCESS</h4>
+<pre>
+    <code><strong>RESPONSE BODY</strong> :
+    {
+        status : 'success',                
+        info : messageId,       //unique message Id on successfull delivery of message
+    }
+</pre>

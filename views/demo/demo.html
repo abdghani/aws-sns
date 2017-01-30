@@ -1,0 +1,55 @@
+<h2>
+    <strong>
+        DEMO
+    </strong>
+</h2>
+
+<md-container>
+             <form novalidate class="simple-form" name="form">
+                <md-content   layout-margin >
+                    <div >
+                        <md-input-container class="md-block" flex-gt-md >
+                            <label>PHONE NUMBER</label>
+                            <input ng-model="user.phoneNumber" type="number" name="uphoneNumber" required="" >
+                                <br />
+                                <div ng-show="form.$submitted || form.uphoneNumber.$touched">
+                                <span ng-show="form.uphoneNumber.$error.required">Phone Number is required.</span>
+                                <!--<div ng-message="pattern">
+                                    invalid phone number.
+                                </div>-->
+                                </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>ACCESS KEY</label>
+                            <input ng-model="user.accessKey" type="text"  required=""  name="uaccessKey">
+                                <br />
+                                <div ng-show="form.$submitted || form.uaccessKey.$touched">
+                                <span ng-show="form.uaccessKey.$error.required">Access Key Is Nedded.</span>
+                                
+                                </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>MESSAGE</label>
+                            <input ng-model="user.message" type="text"  required=""  name="message"  md-maxlength="150">
+                                <br />
+                                <div ng-show="form.$submitted || form.message.$touched">
+                                    <span ng-show="form.message.$error.required">Access Key Is Nedded.</span>
+                                    <span ng-message="md-maxlength">The description must be less than 150 characters long.</span>
+                                </div>
+                        </md-input-container>
+                        
+                    </div>
+                    <div layout-align="center center">
+                        <md-button class="md-raised md-primary" type="submit" ng-click="sendSms(user)">SEND</md-button>
+                    </div>
+                    <div ng-show="showSuccess">
+                        <h4>MESSAGE SENT</h4>
+                    </div>
+                    <div ng-show="showFailure">
+                        MESSAGE SENT FAILED : {{failureMessage}}
+                    </div>
+                </md-content>
+            </form >
+</md-container>
