@@ -14,4 +14,4 @@ SMSANY is sms service based on aws-sns.
 
 
 ### Demo
-[SMSANY](http://smsany.herokuapp.com "visit SMSANY")
+[SMSANY](http://smsany.greyphase.com "visit SMSANY")
